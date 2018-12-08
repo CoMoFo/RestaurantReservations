@@ -1,17 +1,21 @@
 {
-  "name": "starwars-express",
+  "name": "RestaurantReservations",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
-  "dependencies": {
-    "express": "^4.16.3"
-  },
-  "devDependencies": {},
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "watch": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoMoFo/RestaurantReservations.git"
+  },
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoMoFo/RestaurantReservations/issues"
+  },
+  "homepage": "https://github.com/CoMoFo/RestaurantReservations#readme"
 }
+ 

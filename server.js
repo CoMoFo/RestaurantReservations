@@ -10,9 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Pages (DATA)
-var pages = [
+var reservations = [
   {
-    routeName: "reservations",
+    routeName: "reservation",
     name:"",
     phoneNumber:"",
     email:"",
@@ -36,41 +36,41 @@ app.get("/reserve", function(req, res) {
   res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
-// Displays all characters
-app.get("/api/pages", function(req, res) {
-  return res.json(characters);
+// Displays all RESERVATIONS
+app.get("/api/reservations", function(req, res) {
+  return res.json(reservations);
 });
 
 // Displays a single character, or returns false
-app.get("/api/characters/:character", function(req, res) {
-  var chosen = req.params.character;
+app.get("/api/reservations/:reservation", function(req, res) {
+  var chosen = req.params.reservations;
 
   console.log(chosen);
 
-  for (var i = 0; i < characters.length; i++) {
-    if (chosen === characters[i].routeName) {
-      return res.json(characters[i]);
+  for (var i = 0; i < reservations.length; i++) {
+    if (chosen === reservations[i].routeName) {
+      return res.json(reservations[i]);
     }
   }
 
   return res.json(false);
 });
 
-// Create New Characters - takes in JSON input
-app.post("/api/pages", function(req, res) {
+// Create New RESERVATIONS - takes in JSON input
+app.post("/api/reservations", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
-  var newpages = req.body;
+  var newreservations = req.body;
 
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  newpages.routeName = newpages.name.replace(/\s+/g, "").toLowerCase();
+  newreservations.routeName = newreservations.name.replace(/\s+/g, "").toLowerCase();
 
-  console.log(newpages);
+  console.log(newreservations);
 
-  pages.push(newpages);
+  pages.push(newreservations);
 
-  res.json(newpages);
+  res.json(newreservations);
 });
 
 // Starts the server to begin listening
